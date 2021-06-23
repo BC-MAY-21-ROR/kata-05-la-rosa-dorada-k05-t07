@@ -7,21 +7,21 @@ require_relative 'functions'
 class GildedRose
   def initialize(items)
     @items = items
-    @general = General.new
+    @functions = Functions.new
   end
 
   def update_quality
     @items.each do |item|
       if (item.name != 'Aged Brie') && (item.name != 'Backstage passes to a TAFKAL80ETC concert')
-        @general.degrade(item)
+        @functions.degrade(item)
       elsif item.quality < 50
         # backstage concert and aged brie
-        @general.quality_adjust(item, '+')
-        @general.backstage(item)
+        @functions.quality_adjust(item, '+')
+        @functions.backstage(item)
       end
       item.sell_in -= 1 if item.name != 'Sulfuras, Hand of Ragnaros'
       # producto vencido
-      @general.expired(item)
+      @functions.expired(item)
     end
   end
 end

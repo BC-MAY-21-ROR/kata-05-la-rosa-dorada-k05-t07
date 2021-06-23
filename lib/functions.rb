@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Clase General
-class General
+class Functions
   def backstage(item)
     return unless item.name == 'Backstage passes to a TAFKAL80ETC concert'
 
